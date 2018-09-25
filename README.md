@@ -11,9 +11,9 @@ Página del grupo "Julia" de Teoria del Lenguaje de la Facultad de Ingeniería d
  -  docker
 
 #### Agregar nuestro usuario al grupo docker
-´´´
+'''
 sudo usermod -aG docker $USER (reinciar la maquina, si, reiniciar)
-´´´
+'''
 #### Correr imagen de prueba
 ´´´
 docker run hello-world
