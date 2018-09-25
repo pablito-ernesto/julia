@@ -3,11 +3,13 @@
 Página del grupo "Julia" de Teoria del Lenguaje de la Facultad de Ingeniería de la Universidad de Buenos Aires.
 
 
-### Tema Oficial del grupo
+### Temas Oficiales del grupo
+ - [Tema tranca](https://open.spotify.com/track/5FnpXVgDOk2sLT58qM22Of)
+ - [Tema fesivo](https://open.spotify.com/track/4JUu9vPnWQXEU9BCUQvqC6)
 
 ### Levantar Jupyter
 
-#### instalar 
+#### Instalar 
  -  docker
 
 #### Agregar nuestro usuario al grupo docker
@@ -22,13 +24,13 @@ docker run hello-world
 ```
 docker pull jupyter/datascience-notebook
 ```
-#### Levantar la imagen 
+#### Levantar la imagen (Opción 1)
 ```
 docker run  -p 8888:8888 jupyter/datascience-notebook 
 ```
-#### Levantar la imagen mapeando un directorio
+#### Levantar la imagen mapeando un directorio (Opción 2)
 ```
-docker run -v /home/pablo/desa/src/personal/julia/tutorials:/home/jovyan/work/tutorials -p 8888:8888 jupyter/datascience-notebook 
+docker run -v /home/hostfolder:/home/jovyan/work/imagefolder -p 8888:8888 jupyter/datascience-notebook 
 ```
 
 
