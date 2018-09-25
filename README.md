@@ -11,6 +11,9 @@ Página del grupo "Julia" de Teoria del Lenguaje de la Facultad de Ingeniería d
  - [Video que repasa todos los features](https://www.youtube.com/watch?time_continue=1&v=4igzy3bGVkQ)
  - [Notebook para probar](https://next.juliabox.com/)
 
+### Paper
+ - [Julia: A Fast Dynamic Language for Technical Computing](https://github.com/pablito-ernesto/julia/blob/master/2012%2Cbezanson%2Cjulia%20-%20a%20fast%20dynamic%20language%20for%20technical%20computing.pdf) 
+
 ### Levantar Jupyter
 
 #### Instalar 
