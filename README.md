@@ -5,7 +5,7 @@ Página del grupo "Julia" de Teoria del Lenguaje de la Facultad de Ingeniería d
 
 ### Temas Oficiales del grupo
  - [Tema tranca](https://open.spotify.com/track/5FnpXVgDOk2sLT58qM22Of)
- - [Tema fesivo](https://open.spotify.com/track/4JUu9vPnWQXEU9BCUQvqC6)
+ - [Tema festivo](https://open.spotify.com/track/4JUu9vPnWQXEU9BCUQvqC6)
 
 ### Tutoriales
  - [Video que repasa todos los features](https://www.youtube.com/watch?time_continue=1&v=4igzy3bGVkQ)
