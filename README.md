@@ -24,7 +24,7 @@ sudo usermod -aG docker $USER (reinciar la maquina, si, reiniciar)
 ```
 docker run hello-world
 ```
-#### Traer la imagen de jupiter
+#### Traer la imagen de jupyter
 ```
 docker pull jupyter/datascience-notebook
 ```
