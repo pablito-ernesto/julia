@@ -1,13 +1,16 @@
-a = rand(10^7) # 1D vector of random numbers, uniform on [0,1)
+#Vector con numeros random entre 0 y 1. 10 millones
+a = rand(10^7)
+println(size(a))
 println(sum(a))
 @time sum(a)
 @time sum(a)
 @time sum(a)
 
+#Usando BenchmarkTools se puede correr codigo en otros lenguajes
 using Pkg
 Pkg.add("BenchmarkTools")
-
 using BenchmarkTools
+#Prueba en C
 using Libdl
 C_code = """
             #include <stddef.h>
@@ -20,7 +23,6 @@ C_code = """
             }
         """
 
-
 const Clib = tempname()   # make a temporary file
 
 # compile to a shared library by piping C_code to gcc
@@ -31,21 +33,28 @@ end
 # define a Julia function that calls the C function:
 c_sum(X::Array{Float64}) = ccall(("c_sum", Clib), Float64, (Csize_t, Ptr{Float64}), length(X), X)
 
-c_sum(a)
-c_sum(a) ≈ sum(a) # type \approx and then <TAB> to get the ≈ symbolb
-c_sum(a) - sum(a)
-≈  # alias for the `isapprox` function
+#is aprox function
+println("😸")
+1 ≈ 1.00000001
 
+c_sum(a)
+c_sum(a) ≈ sum(a)
+
+#TODO como y para que se usa benchmark
 c_bench = @benchmark c_sum($a)
 println("C: Fastest time was $(minimum(c_bench.times) / 1e6) msec")
-d = Dict()  # a "dictionary", i.e. an associative array
-d["C"] = minimum(c_bench.times) / 1e6  # in milliseconds
-d
+#Crear un diccionario y guardar el minimo de tiempo para C
+d = Dict()
+d["C"] = minimum(c_bench.times) / 1e6
+
 using Plots
+#TODO para que se usa el gr()
 gr()
 
 using Statistics # bring in statistical support for standard deviations
 t = c_bench.times / 1e6 # times in milliseconds
+#sacar el minimo de todos los tiempos y la desviacion estandar
+#TODO que es la desviacion estandar
 m, σ = minimum(t), std(t)
 
 histogram(t, bins=500,
@@ -63,7 +72,7 @@ pysum(a)
 pysum(a) ≈ sum(a)
 py_list_bench = @benchmark $pysum($a)
 d["Python built-in"] = minimum(py_list_bench.times) / 1e6
-d
+
 
 ##PYTHON NUMPY
 using Pkg; Pkg.add("Conda")
@@ -76,7 +85,7 @@ py_numpy_bench = @benchmark $numpy_sum($a)
 numpy_sum(a)
 numpy_sum(a) ≈ sum(a)
 d["Python numpy"] = minimum(py_numpy_bench.times) / 1e6
-d
+
 
 ##PYTHON HAND WRITTEN
 py"""
@@ -93,4 +102,3 @@ py_hand = @benchmark $sum_py($a)
 sum_py(a)
 sum_py(a) ≈ sum(a)
 d["Python hand-written"] = minimum(py_hand.times) / 1e6
-d
