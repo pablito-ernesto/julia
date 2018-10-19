@@ -4,21 +4,22 @@ println(sum(a))
 @time sum(a)
 @time sum(a)
 
-# using Pkg
-# Pkg.add("BenchmarkTools")
+using Pkg
+Pkg.add("BenchmarkTools")
 
 using BenchmarkTools
 using Libdl
 C_code = """
-#include <stddef.h>
-double c_sum(size_t n, double *X) {
-    double s = 0.0;
-    for (size_t i = 0; i < n; ++i) {
-        s += X[i];
-    }
-    return s;
-}
-"""
+            #include <stddef.h>
+            double c_sum(size_t n, double *X) {
+                double s = 0.0;
+                for (size_t i = 0; i < n; ++i) {
+                    s += X[i];
+                }
+                return s;
+            }
+        """
+
 
 const Clib = tempname()   # make a temporary file
 
@@ -34,7 +35,7 @@ c_sum(a)
 c_sum(a) ≈ sum(a) # type \approx and then <TAB> to get the ≈ symbolb
 c_sum(a) - sum(a)
 ≈  # alias for the `isapprox` function
-?isapprox
+
 c_bench = @benchmark c_sum($a)
 println("C: Fastest time was $(minimum(c_bench.times) / 1e6) msec")
 d = Dict()  # a "dictionary", i.e. an associative array
