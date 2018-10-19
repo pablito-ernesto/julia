@@ -55,7 +55,7 @@ histogram(t, bins=500,
 
 ##PYTHON
 
-# using Pkg; Pkg.add("PyCall")
+using Pkg; Pkg.add("PyCall")
 using PyCall
 # get the Python built-in "sum" function:
 pysum = pybuiltin("sum")
@@ -66,7 +66,7 @@ d["Python built-in"] = minimum(py_list_bench.times) / 1e6
 d
 
 ##PYTHON NUMPY
-# using Pkg; Pkg.add("Conda")
+using Pkg; Pkg.add("Conda")
 using Conda
 Conda.add("numpy")
 
